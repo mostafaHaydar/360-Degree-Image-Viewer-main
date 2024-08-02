@@ -1,0 +1,42 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-transform: none;
+}
+input:focus {
+  outline: none;
+}
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+button:focus {
+  outline: 0;
+}
+a {
+  text-decoration: none;
+  color: #fff;
+}
+body {
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 3px;
+}
+@media (max-width: 500px) {
+  ::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+  }
+}
+::-webkit-scrollbar-track {
+  background-color: #fff;
+}
+::-webkit-scrollbar-thumb {
+  background: #8e919b;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #8e919b;
+}
