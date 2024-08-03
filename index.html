@@ -26,43 +26,60 @@
       <form action="">
         <input type="text" placeholder="search by Address" />
         <button>
-          <img src="/images/search.svg" alt="" />
+          <img src="/images/graphics/search.svg" alt="search" />
         </button>
       </form>
     </div>
-    <style>
-      .marker {
-        position: absolute;
-        background-color: red;
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        pointer-events: none; /* Prevents interaction with the marker */
-      }
-    </style>
 
     <div class="view-container">
-      <img src="/images/phone.svg" alt="call phone" class="make-call" />
+      <img
+        src="/images/graphics/phone.svg"
+        alt="call phone"
+        class="make-call"
+      />
       <div class="viewer id-1" id="viewer"></div>
-      <img src="/images/heart.svg" alt="like" class="like-icon" />
+      <img src="/images/graphics/heart.svg" alt="like" class="like-icon" />
       <div class="property-inof-address">
-        <img src="/images/flag.svg" alt="location" />
+        <img src="/images/graphics/flag.svg" alt="location" />
         <p>jerada hay el moutakadimin</p>
       </div>
       <div class="property-inof-price">
-        <img src="/images/payments.svg" alt="price" />
+        <img src="/images/graphics/payments.svg" alt="price" />
         <p>2000 DH per year</p>
       </div>
       <div class="full-visit">
-        <img src="/images/360.svg" alt="visit" />
+        <img src="/images/graphics/360.svg" alt="visit" />
         <p>make a full visit</p>
       </div>
     </div>
 
-    <footer></footer>
+    <footer>
+      <div class="linksForContact">
+        <a
+          href="https://www.instagram.com/ajircomofficial/"
+          target="_blank"
+          class="contactIconContainer"
+        >
+          <img src="/images/graphics/instagram.svg" alt="instagram" />
+        </a>
+        <a
+          href="mailto:ajircom@ajircom.com"
+          target="_blank"
+          class="contactIconContainer"
+        >
+          <img src="/images/graphics/email.svg" alt="email" />
+        </a>
+        <a
+          href="https://web.facebook.com/Ajircomcom"
+          target="_blank"
+          class="contactIconContainer"
+        >
+          <img src="/images/graphics/facebook.svg" alt="facebook" />
+        </a>
+      </div>
+    </footer>
     <script>
-      // const { viewer, panoramaImage, imageContainer } =
-      initializeViewer("images/image1.jpeg", "viewer", {});
+      initializeViewer("images//panorama/image1.jpeg", "viewer", {});
     </script>
   </body>
 </html>

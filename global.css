@@ -15,7 +15,6 @@ button:focus {
 }
 a {
   text-decoration: none;
-  color: #fff;
 }
 body {
   overflow-x: hidden;
@@ -39,4 +38,36 @@ body {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #8e919b;
+}
+
+/* footer */
+footer {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex-wrap: wrap;
+  z-index: 99;
+  background-color: #f4f5f8;
+  margin-top: 100px;
+}
+
+.linksForContact {
+  width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.contactIconContainer {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.contactIconContainer > img {
+  height: 35px;
 }

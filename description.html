@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/global.css" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/three.js/105/three.min.js"
+      integrity="sha512-uWKImujbh9CwNa8Eey5s8vlHDB4o1HhrVszkympkm5ciYTnUEQv3t4QHU02CUqPtdKTg62FsHo12x63q6u0wmg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="js/panolens.min.js"></script>
+    <script src="js/main.js"></script>
+  </head>
+  <body>
+    <style>
+      .description-conatiner {
+        width: 100%;
+        height: 100vh;
+        background-color: black;
+        position: relative;
+        overflow: hidden;
+      }
+      .viewer {
+        width: 100%;
+        height: 100%;
+      }
+      .all-panorama-images {
+        width: 90%;
+        height: 150px;
+        border-radius: 0px 0px 10px 10px;
+        background-color: #1111116c;
+        z-index: 100;
+        bottom: 50px;
+        left: 5%;
+        position: absolute;
+        padding: 10px;
+        padding-left: 0px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+      }
+      .all-panorama-images > div {
+        width: 150px;
+        height: 100%;
+        background-color: white;
+        border-radius: 0px 0px 5px 5px;
+        margin-left: 10px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+      .all-panorama-images > div > img {
+        height: 100%;
+      }
+    </style>
+    <div class="description-conatiner">
+      <div class="viewer" id="viewer"></div>
+      <div class="all-panorama-images">
+        <div class="normal-image">
+          <img
+            src="images/panorama/image1.jpeg"
+            onclick="changePanorama(this)"
+          />
+        </div>
+        <div class="normal-image">
+          <img src="images/panorama/360.jpg" onclick="changePanorama(this)" />
+        </div>
+      </div>
+    </div>
+    <script>
+      document.querySelector(
+        ".normal-image"
+      ).firstElementChild.style.borderTop = "6px solid gold";
+      function changePanorama(htmlElement) {
+        document.querySelector(".viewer").innerHTML = "";
+        initializeViewer(htmlElement.getAttribute("src"), "viewer", {});
+        document.querySelectorAll(".normal-image").forEach((element) => {
+          element.firstElementChild.style.borderTop = "0px solid gold";
+        });
+        htmlElement.style.borderTop = "6px solid gold";
+      }
+      initializeViewer("images/panorama/image1.jpeg", "viewer", {});
+    </script>
+  </body>
+</html>

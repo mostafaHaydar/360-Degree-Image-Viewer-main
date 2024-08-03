@@ -4,7 +4,7 @@ body {
 }
 
 .view-container {
-  width: 70%;
+  width: 90%;
   height: 500px;
   border-radius: 15px;
   overflow: hidden;
@@ -12,7 +12,7 @@ body {
   align-items: center;
   justify-content: center;
   background-color: white;
-  margin-left: 15%;
+  margin-left: 5%;
   margin-top: 50px;
   position: relative;
   cursor: -webkit-grab;
@@ -72,7 +72,7 @@ body {
 }
 
 .search {
-  width: 70%;
+  width: 90%;
   height: 50px;
   border-radius: 10px;
   overflow: hidden;
@@ -80,7 +80,7 @@ body {
   align-items: center;
   justify-content: center;
   background-color: white;
-  margin-left: 15%;
+  margin-left: 5%;
   margin-top: 50px;
   position: relative;
   cursor: pointer;
@@ -110,17 +110,14 @@ form {
   background-color: white;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   border: none;
   cursor: pointer;
 }
 
 .search button img {
   width: 40px;
-}
-
-footer {
-  height: 100px;
+  margin-right: 10px;
 }
 
 .like-icon {
@@ -140,4 +137,86 @@ footer {
   left: 10px;
   position: absolute;
   padding: 10px;
+}
+@media (max-width: 800px) {
+  .view-container {
+    width: 96%;
+    height: 500px;
+    border-radius: 10px;
+    margin-left: 2%;
+    margin-top: 30px;
+  }
+
+  .property-inof-address,
+  .property-inof-price {
+    width: auto;
+    height: 40px;
+    border-radius: 5px;
+    left: 5px;
+    bottom: 50px;
+    font-size: 20px;
+    padding: 5px;
+  }
+
+  .property-inof-address {
+    bottom: 95px;
+  }
+
+  .property-inof-address p,
+  .property-inof-price p {
+    padding-left: 10px;
+  }
+
+  .full-visit {
+    width: auto;
+    height: 40px;
+    border-radius: 5px;
+    left: 5px;
+    bottom: 5px;
+    font-size: 20px;
+    padding: 5px;
+  }
+
+  .full-visit p {
+    padding-left: 10px;
+  }
+
+  .search {
+    width: 96%;
+    height: 40px;
+    border-radius: 10px;
+    margin-left: 2%;
+    margin-top: 30px;
+  }
+
+  .search input {
+    width: 85%;
+    height: 100%;
+    font-size: 20px;
+    padding-left: 10px;
+  }
+
+  .search button {
+    width: 15%;
+    height: 100%;
+  }
+
+  .search button img {
+    width: 35px;
+  }
+
+  .like-icon {
+    width: 40px;
+    top: 5px;
+    right: 5px;
+  }
+
+  .make-call {
+    width: 50px;
+    border-radius: 10px;
+    top: 5px;
+    left: 5px;
+    padding: 10px;
+  }
+
 }
