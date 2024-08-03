@@ -1,5 +1,8 @@
 function initializeViewer(image, container, options = {}) {
-  const panoramaImage = new PANOLENS.ImagePanorama(`${image}`);
+  const panoramaImage = new PANOLENS.ImagePanorama(
+    `./images/panorama/${image}`
+  );
+
   const imageContainer = document.querySelector(`.${container}`);
 
   const defaultOptions = {
