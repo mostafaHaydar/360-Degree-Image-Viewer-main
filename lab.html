@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baskervville+SC&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/three.js/105/three.min.js"
+      integrity="sha512-uWKImujbh9CwNa8Eey5s8vlHDB4o1HhrVszkympkm5ciYTnUEQv3t4QHU02CUqPtdKTg62FsHo12x63q6u0wmg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="js/panolens.min.js"></script>
+    <script src="js/main.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      body {
+        margin: 0px;
+        padding: 0px;
+      }
+      .viewer {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <div class="viewer id-1"></div>
+    <script>
+      initializeViewer("image1.jpeg", "id-1", {});
+    </script>
+  </body>
+</html>

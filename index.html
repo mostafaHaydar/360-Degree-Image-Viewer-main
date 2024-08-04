@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./global.css" />
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./css/global.css" />
+    <link rel="stylesheet" href="./css/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -17,8 +17,9 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
-    <script src="js/panolens.min.js"></script>
-    <script src="js/main.js"></script>
+    <script src="./js/panolens.min.js"></script>
+    <script src="./js/main.js"></script>
+    <script src="./js/global.js"></script>
     <title>Document</title>
   </head>
   <body>
@@ -32,130 +33,39 @@
     </div>
 
     <div class="view-container">
-      <img
-        src="./images/graphics/phone.svg"
-        alt="call phone"
-        class="make-call"
-      />
+      <div class="make-call" onclick="ownerPhoneNumber(this)">
+        <img
+          src="./images/graphics/phone.svg"
+          alt="call phone"
+        />
+        <p>
+          06 17 18 35 93
+        </p>
+      </div>
       <div class="viewer id-1"></div>
       <script>
-        initializeViewer("image1.jpeg", "id-1");
+        initializeViewer("./images/panorama/image1.jpeg", "id-1");
       </script>
-      <img src="./images/graphics/heart.svg" alt="like" class="like-icon" />
-      <div class="property-inof-address">
-        <img src="./images/graphics/flag.svg" alt="location" />
-        <p>jerada hay el moutakadimin</p>
-      </div>
-      <div class="property-inof-price">
-        <img src="./images/graphics/payments.svg" alt="price" />
-        <p>2000 DH per year</p>
-      </div>
-      <div class="full-visit">
-        <img src="./images/graphics/360.svg" alt="visit" />
-        <p>make a full visit</p>
-      </div>
-    </div>
-
-    <div class="view-container">
       <img
-        src="./images/graphics/phone.svg"
-        alt="call phone"
-        class="make-call"
+        src="./images/graphics/heart.svg"
+        alt="like"
+        onclick="addLike(this)"
+        class="like-icon"
+        data-liked="false"
       />
-      <div class="viewer id-2"></div>
-      <script>
-        initializeViewer("image2.jpeg", "id-2");
-      </script>
-      <img src="./images/graphics/heart.svg" alt="like" class="like-icon" />
       <div class="property-inof-address">
         <img src="./images/graphics/flag.svg" alt="location" />
-        <p>jerada hay el moutakadimin</p>
+        <p>Oujda Al Qods</p>
       </div>
       <div class="property-inof-price">
         <img src="./images/graphics/payments.svg" alt="price" />
-        <p>2000 DH per year</p>
+        <p>10000 DH per year</p>
       </div>
-      <div class="full-visit">
+      <a href="./description.html" class="full-visit">
         <img src="./images/graphics/360.svg" alt="visit" />
         <p>make a full visit</p>
-      </div>
+      </a>
     </div>
-
-    <div class="view-container">
-      <img
-        src="./images/graphics/phone.svg"
-        alt="call phone"
-        class="make-call"
-      />
-      <div class="viewer id-3"></div>
-      <script>
-        initializeViewer("image3.jpeg", "id-3");
-      </script>
-      <img src="./images/graphics/heart.svg" alt="like" class="like-icon" />
-      <div class="property-inof-address">
-        <img src="./images/graphics/flag.svg" alt="location" />
-        <p>jerada hay el moutakadimin</p>
-      </div>
-      <div class="property-inof-price">
-        <img src="./images/graphics/payments.svg" alt="price" />
-        <p>2000 DH per year</p>
-      </div>
-      <div class="full-visit">
-        <img src="./images/graphics/360.svg" alt="visit" />
-        <p>make a full visit</p>
-      </div>
-    </div>
-
-    <div class="view-container">
-      <img
-        src="./images/graphics/phone.svg"
-        alt="call phone"
-        class="make-call"
-      />
-      <div class="viewer id-4"></div>
-      <script>
-        initializeViewer("image4.jpeg", "id-4");
-      </script>
-      <img src="./images/graphics/heart.svg" alt="like" class="like-icon" />
-      <div class="property-inof-address">
-        <img src="./images/graphics/flag.svg" alt="location" />
-        <p>jerada hay el moutakadimin</p>
-      </div>
-      <div class="property-inof-price">
-        <img src="./images/graphics/payments.svg" alt="price" />
-        <p>2000 DH per year</p>
-      </div>
-      <div class="full-visit">
-        <img src="./images/graphics/360.svg" alt="visit" />
-        <p>make a full visit</p>
-      </div>
-    </div>
-
-    <div class="view-container">
-      <img
-        src="./images/graphics/phone.svg"
-        alt="call phone"
-        class="make-call"
-      />
-      <div class="viewer id-5"></div>
-      <script>
-        initializeViewer("image5.jpeg", "id-5");
-      </script>
-      <img src="./images/graphics/heart.svg" alt="like" class="like-icon" />
-      <div class="property-inof-address">
-        <img src="./images/graphics/flag.svg" alt="location" />
-        <p>jerada hay el moutakadimin</p>
-      </div>
-      <div class="property-inof-price">
-        <img src="./images/graphics/payments.svg" alt="price" />
-        <p>2000 DH per year</p>
-      </div>
-      <div class="full-visit">
-        <img src="./images/graphics/360.svg" alt="visit" />
-        <p>make a full visit</p>
-      </div>
-    </div>
-    
     <footer>
       <div class="linksForContact">
         <a
@@ -183,3 +93,18 @@
     </footer>
   </body>
 </html>
+<script>
+  function ownerPhoneNumber(event) {
+    event.style.width = "200px";
+    event.style.background="rgba(255, 0, 0, 1)"
+    event.lastElementChild.style.display = "block";
+    event.setAttribute("onclick","hiddeOwnerPhoneNumber(this)")
+
+  }
+  function hiddeOwnerPhoneNumber(event) {
+    event.style.width = "60px";
+    event.style.background="rgba(255, 0, 0, 0.767)"
+    event.lastElementChild.style.display = "none";
+  event.setAttribute("onclick","ownerPhoneNumber(this)")
+  }
+</script>

@@ -15,8 +15,8 @@ body {
   margin-left: 5%;
   margin-top: 50px;
   position: relative;
-  cursor: -webkit-grab;
-  cursor: grab;
+  /* cursor: -webkit-grab;
+  cursor: grab; */
 }
 
 .viewer {
@@ -69,6 +69,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  cursor: pointer;
 }
 
 .full-visit p {
@@ -135,15 +136,28 @@ form {
 
 .make-call {
   width: 60px;
-  height: auto;
+  height: 60px;
   background-color: rgba(255, 0, 0, 0.767);
   border-radius: 10px;
   top: 10px;
   left: 10px;
   position: absolute;
-  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  z-index: 999;
 }
 
+.make-call > img {
+  width: 30px;
+}
+.make-call > p {
+  display: none;
+  color: white;
+  font-size: 18px;
+  padding-right: 20px;
+}
 @media (max-width: 800px) {
   .view-container {
     width: 98%;
