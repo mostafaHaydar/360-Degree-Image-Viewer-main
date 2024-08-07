@@ -147,17 +147,41 @@ form {
   align-items: center;
   justify-content: space-around;
   z-index: 999;
+  animation-name: "";
+  animation-duration: 0.2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes grow {
+  from {
+    width: 60px;
+  }
+  to {
+    width: 250px;
+  }
+}
+
+@keyframes shrink {
+  from {
+    width: 250px;
+  }
+  to {
+    width: 60px;
+  }
 }
 
 .make-call > img {
   width: 30px;
 }
+
 .make-call > p {
   display: none;
   color: white;
   font-size: 18px;
   padding-right: 20px;
 }
+
 @media (max-width: 800px) {
   .view-container {
     width: 98%;
@@ -169,15 +193,16 @@ form {
     justify-content: flex-start;
   }
   .viewer {
-    width: 90%;
+    width: 100%;
     border-radius: 10px;
   }
   .property-inof-address,
   .property-inof-price {
-    width: 250px;
+    width: 96%;
     height: 40px;
     border-radius: 5px;
-    left: 5px;
+    left: 2%;
+    right: 2%;
     bottom: 50px;
     font-size: 16px;
     padding: 5px;
@@ -193,10 +218,11 @@ form {
   }
 
   .full-visit {
-    width: 250px;
+    width: 96%;
     height: 40px;
     border-radius: 5px;
-    left: 5px;
+    left: 2%;
+    right: 2%;
     bottom: 5px;
     font-size: 20px;
     padding: 5px;
@@ -233,15 +259,12 @@ form {
   .like-icon {
     width: 9%;
     top: 5px;
-    right: 11%;
+    right: 2%;
   }
 
   .make-call {
-    width: 9%;
-    border-radius: 10px;
+    border-radius: 5px;
     top: 5px;
-    right: 0px;
-    left: auto;
-    padding: 3px;
+    left: 2%;
   }
 }

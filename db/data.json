@@ -1,0 +1,86 @@
+{
+    "home": {
+        "id": 1,
+        "address": "123 Main St",
+        "description": "A beautiful family home with modern amenities.",
+        "image_url": "image1.jpeg",
+        "owner": "John Doe",
+        "phone_number": "555-1234",
+        "price": "$350,000",
+        "size": 2500.0,
+        "view": "city",
+        "rooms": [
+            {
+                "id": 1,
+                "home_id": 1,
+                "name": "Living Room",
+                "description": "Spacious and well-lit with a great view.",
+                "image_url": "image1.jpeg",
+                "doors": [
+                    {
+                        "id": 1,
+                        "room_id": 1,
+                        "name": "Main Door",
+                        "x": -20,
+                        "y": -8,
+                        "z": -5,
+                        "leading_to_room_id": 2
+                    },
+                    {
+                        "id": 2,
+                        "room_id": 1,
+                        "name": "Balcony Door",
+                        "x": -10,
+                        "y": -8,
+                        "z": -5,
+                        "leading_to_room_id": 3
+                    }
+                ]
+            },
+            {
+                "id": 2,
+                "home_id": 1,
+                "name": "Kitchen",
+                "description": "Modern kitchen with all the essentials.",
+                "image_url": "image2.jpeg",
+                "doors": [
+                    {
+                        "id": 3,
+                        "room_id": 2,
+                        "name": "Back Door",
+                        "x": 1.5,
+                        "y": 1.0,
+                        "z": 0.0,
+                        "leading_to_room_id": 4
+                    }
+                ]
+            },
+            {
+                "id": 3,
+                "home_id": 1,
+                "name": "Dining Room",
+                "description": "Elegant dining area with a large table.",
+                "image_url": "image1.jpeg",
+                "doors": [
+                    {
+                        "id": 4,
+                        "room_id": 3,
+                        "name": "Patio Door",
+                        "x": 1.0,
+                        "y": 2.5,
+                        "z": 0.0,
+                        "leading_to_room_id": 5
+                    }
+                ]
+            },
+            {
+                "id": 4,
+                "home_id": 1,
+                "name": "Bathroom",
+                "description": "Modern bathroom with shower and tub.",
+                "image_url": "image2.jpeg",
+                "doors": []
+            }
+        ]
+    }
+}

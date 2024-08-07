@@ -1,6 +1,8 @@
-function initializeViewer(image, container) {
-  const panoramaImage = new PANOLENS.ImagePanorama(`${image}`);
+function initializeViewer(image, container, interactive = false) {
+  const panoramaImage = new PANOLENS.ImagePanorama(`./images/panorama/${image}`);
   const imageContainer = document.querySelector(`.${container}`);
+
+  // Create the viewer instance
   const viewer = new PANOLENS.Viewer({
     container: imageContainer,
     autoRotate: true,
@@ -10,40 +12,40 @@ function initializeViewer(image, container) {
     backgroundColor: 0x000000,
     renderStats: false,
   });
+
+  // Add the panorama image to the viewer
   viewer.add(panoramaImage);
+
+  // Access the controls and update their properties
+  viewer.controls.enable = interactive;
+  viewer.controls.enablePan = interactive;
+  viewer.controls.enableZoom = interactive;
+
+  // Optionally disable pointer events on the container if needed
+  if (!interactive) {
+    imageContainer.style.pointerEvents = "none";
+  } else {
+    imageContainer.style.pointerEvents = "";
+  }
 }
 
-function initializeViewerFullView(image, container, markers = []) {
-  const panoramaImage = new PANOLENS.ImagePanorama(`${image}`);
+function initializeViewerFullView(image, container, markers = [], homeID) {
+  const panoramaImage = new PANOLENS.ImagePanorama(`/images/panorama/${image}`);
   const imageContainer = document.querySelector(`.${container}`);
   const viewer = new PANOLENS.Viewer({
     container: imageContainer,
     autoRotate: true,
     autoRotateSpeed: 0.3,
-    controlBar: false,
+    controlBar: true,
     pointerLock: false,
     backgroundColor: 0x000000,
     renderStats: false,
   });
   viewer.add(panoramaImage);
-  addMarkers(viewer, panoramaImage, markers);
+  addMarkers(viewer, panoramaImage, markers, homeID);
 }
 
-function addMarkers(viewer, panoramaImage, markers) {
-  markers = [
-    {
-      id: 1,
-      position: { x: -20, y: -5, z: -8 },
-    },
-    {
-      id: 2,
-      position: { x: -10, y: -5, z: -8 },
-    },
-    {
-      id: 3,
-      position: { x: 0, y: -5, z: -8 },
-    },
-  ];
+function addMarkers(viewer, panoramaImage, markers, homeID) {
   imageUrl = "./images/graphics/chevron.png";
 
   const raycaster = new THREE.Raycaster();
@@ -56,13 +58,8 @@ function addMarkers(viewer, panoramaImage, markers) {
       const spriteMaterial = new THREE.SpriteMaterial({ map: texture });
       const sprite = new THREE.Sprite(spriteMaterial);
       sprite.scale.set(4, 4, 1);
-      sprite.position.set(
-        markerData.position.x,
-        markerData.position.y,
-        markerData.position.z
-      );
-      // Store the marker ID in the sprite userData for identification
-      sprite.userData = { id: markerData.id };
+      sprite.position.set(markerData.x, markerData.y, markerData.z);
+      sprite.userData = { id: markerData.leading_to_room_id };
       panoramaImage.add(sprite);
     });
   });
@@ -82,17 +79,11 @@ function addMarkers(viewer, panoramaImage, markers) {
       .sub(raycaster.ray.origin)
       .normalize();
 
-    // Check for intersections
     const intersects = raycaster.intersectObjects(panoramaImage.children, true);
     intersects.forEach((intersect) => {
-      // Identify which marker was clicked using userData
       const markerId = intersect.object.userData.id;
-      if (markerId === 1) {
-        console.log("Hi, I'm marker 1");
-      } else if (markerId === 2) {
-        console.log("Hi, I'm marker 2");
-      } else if (markerId === 3) {
-        console.log("Hi, I'm marker 3");
+      if (`/description.html?homeID=${homeID}&roomID=${markerId}`) {
+        window.location.href = `/description.html?homeID=${homeID}&roomID=${markerId}`;
       }
     });
   });

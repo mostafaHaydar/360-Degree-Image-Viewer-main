@@ -17,6 +17,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
+
     <script src="./js/panolens.min.js"></script>
     <script src="./js/main.js"></script>
     <script src="./js/global.js"></script>
@@ -31,80 +32,71 @@
         </button>
       </form>
     </div>
+    <div id="container" style="width: 100%"></div>
+    <script>
+      async function fetchData() {
+        try {
+          const response = await fetch("./db/data.json");
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          const data = await response.json();
+          return data;
+        } catch (error) {
+          console.error("Error fetching and parsing data:", error);
+        }
+      }
+      async function main() {
+        const data = await fetchData();
+        if (!data || !data.home || !data.home.rooms) {
+          console.log("No data found");
+          return;
+        }
+        document.getElementById("container").innerHTML += `
+                    <div class="view-container">
+                      <div class="make-call" onclick="ownerPhoneNumber(this)">
+                        <img src="./images/graphics/phone.svg" alt="call phone" />
+                        <p>${data.home.phone_number}</p>
+                      </div>
+                      <div class="viewer id-${data.home.id}"></div>
+                      <img
+                        src="./images/graphics/heart.svg"
+                        alt="like"
+                        onclick="addLike(this)"
+                        class="like-icon"
+                        data-liked="false"
+                      />
+                      <div class="property-inof-address">
+                        <img src="./images/graphics/flag.svg" alt="location" />
+                        <p>${data.home.address}</p>
+                      </div>
+                      <div class="property-inof-price">
+                        <img src="./images/graphics/payments.svg" alt="price" />
+                        <p>${data.home.price} per month</p>
+                      </div>
+                      <a href="/description.html?homeID=${data.home.id}&roomID=${data.home.rooms[0].id}" class="full-visit">
+                        <img src="./images/graphics/360.svg" alt="visit" />
+                        <p>make a full visit</p>
+                      </a>
+                    </div>
+                  `;
+        initializeViewer(data.home.image_url, `id-${data.home.id}`);
+      }
+      main();
+    </script>
 
-    <div class="view-container">
-      <div class="make-call" onclick="ownerPhoneNumber(this)">
-        <img
-          src="./images/graphics/phone.svg"
-          alt="call phone"
-        />
-        <p>
-          06 17 18 35 93
-        </p>
-      </div>
-      <div class="viewer id-1"></div>
-      <script>
-        initializeViewer("./images/panorama/image1.jpeg", "id-1");
-      </script>
-      <img
-        src="./images/graphics/heart.svg"
-        alt="like"
-        onclick="addLike(this)"
-        class="like-icon"
-        data-liked="false"
-      />
-      <div class="property-inof-address">
-        <img src="./images/graphics/flag.svg" alt="location" />
-        <p>Oujda Al Qods</p>
-      </div>
-      <div class="property-inof-price">
-        <img src="./images/graphics/payments.svg" alt="price" />
-        <p>10000 DH per year</p>
-      </div>
-      <a href="./description.html" class="full-visit">
-        <img src="./images/graphics/360.svg" alt="visit" />
-        <p>make a full visit</p>
-      </a>
-    </div>
     <footer>
       <div class="linksForContact">
-        <a
-          href="https://www.instagram.com/ajircomofficial/"
-          target="_blank"
-          class="contactIconContainer"
-        >
+        <a href="#" target="_blank" class="contactIconContainer">
           <img src="./images/graphics/instagram.svg" alt="instagram" />
         </a>
-        <a
-          href="mailto:ajircom@ajircom.com"
-          target="_blank"
-          class="contactIconContainer"
-        >
+        <a href="#" target="_blank" class="contactIconContainer">
           <img src="./images/graphics/email.svg" alt="email" />
         </a>
-        <a
-          href="https://web.facebook.com/Ajircomcom"
-          target="_blank"
-          class="contactIconContainer"
-        >
+        <a href="#" target="_blank" class="contactIconContainer">
           <img src="./images/graphics/facebook.svg" alt="facebook" />
         </a>
       </div>
     </footer>
   </body>
 </html>
-<script>
-  function ownerPhoneNumber(event) {
-    event.style.width = "200px";
-    event.style.background="rgba(255, 0, 0, 1)"
-    event.lastElementChild.style.display = "block";
-    event.setAttribute("onclick","hiddeOwnerPhoneNumber(this)")
-
-  }
-  function hiddeOwnerPhoneNumber(event) {
-    event.style.width = "60px";
-    event.style.background="rgba(255, 0, 0, 0.767)"
-    event.lastElementChild.style.display = "none";
-  event.setAttribute("onclick","ownerPhoneNumber(this)")
-  }
-</script>

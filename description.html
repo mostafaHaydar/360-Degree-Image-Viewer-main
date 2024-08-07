@@ -5,109 +5,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="./css/global.css" />
+    <link rel="stylesheet" href="./css/description.css" />
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/three.js/105/three.min.js"
       integrity="sha512-uWKImujbh9CwNa8Eey5s8vlHDB4o1HhrVszkympkm5ciYTnUEQv3t4QHU02CUqPtdKTg62FsHo12x63q6u0wmg=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
-    <script src="js/panolens.min.js"></script>
-    <script src="js/main.js"></script>
+    <script src="./js/global.js "></script>
+    <script src="./js/panolens.min.js "></script>
+    <script src="./js/main.js "></script>
   </head>
   <body>
-    <style>
-      .description-conatiner {
-        width: 100%;
-        height: 100vh;
-        background-color: black;
-        position: relative;
-        overflow: hidden;
-      }
-      .viewer {
-        width: 100%;
-        height: 100%;
-      }
-      .all-panorama-images {
-        width: 98%;
-        height: 100px;
-        border-radius: 0px 0px 10px 10px;
-        background-color: #1111116c;
-        z-index: 100;
-        bottom: 50px;
-        left: 1%;
-        position: absolute;
-        padding: 10px;
-        padding-left: 0px;
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-      }
-      .all-panorama-images > div {
-        width: 100px;
-        height: 100%;
-        background-color: white;
-        border-radius: 0px 0px 5px 5px;
-        margin-left: 10px;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
-      }
-      .all-panorama-images > div > img {
-        height: 100%;
-      }
-    </style>
     <div class="description-conatiner">
+      <a href="/" class="back-to-home">
+        <img src="./images/graphics//arrow-back.svg" alt="back to home" />
+      </a>
       <div class="viewer" id="viewer"></div>
-      <div class="all-panorama-images">
-        <div class="normal-image">
-          <img
-            src="images/panorama/image1.jpeg"
-            onclick="changePanorama(this)"
-          />
-        </div>
-        <div class="normal-image">
-          <img
-            src="images/panorama/image2.jpeg"
-            onclick="changePanorama(this)"
-          />
-        </div>
-        <div class="normal-image">
-          <img
-            src="images/panorama/image3.jpeg"
-            onclick="changePanorama(this)"
-          />
-        </div>
-        <div class="normal-image">
-          <img
-            src="images/panorama/image4.jpeg"
-            onclick="changePanorama(this)"
-          />
-        </div>
-        <div class="normal-image">
-          <img
-            src="images/panorama/image5.jpeg"
-            onclick="changePanorama(this)"
-          />
-        </div>
-      </div>
     </div>
     <script>
-      document.querySelector(
-        ".normal-image"
-      ).firstElementChild.style.borderTop = "6px solid gold";
-      initializeViewerFullView("./images/panorama/image1.jpeg", "viewer");
+      function getQueryParams() {
+        // Create a new URLSearchParams object from the query string
+        const params = new URLSearchParams(window.location.search);
 
-      function changePanorama(htmlElement) {
-        document.querySelector(".viewer").innerHTML = "";
-        initializeViewerFullView(htmlElement.getAttribute("src"), "viewer");
-        document.querySelectorAll(".normal-image").forEach((element) => {
-          element.firstElementChild.style.borderTop = "0px solid gold";
-        });
-        htmlElement.style.borderTop = "6px solid gold";
+        // Get the values of the parameters
+        const homeID = params.get("homeID");
+        const roomID = params.get("roomID");
+
+        // Return the parameters as an object
+        return { homeID, roomID };
       }
-      
+
+      // Usage
+      const { homeID, roomID } = getQueryParams();
+
+      console.log("Home ID:", homeID);
+      console.log("Room ID:", roomID);
+
+      async function fetchData() {
+        try {
+          const response = await fetch("./db/data.json");
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          const data = await response.json();
+          return data;
+        } catch (error) {
+          console.error("Error fetching and parsing data:", error);
+        }
+      }
+      async function main(homeID, roomID) {
+        const data = await fetchData();
+        if (!data || !data.home || !data.home.rooms) {
+          console.log("No data found");
+          return;
+        }
+
+        data.home.rooms.forEach((room) => {
+          // console.log(homeID)
+          if (room.id == roomID) {
+            initializeViewerFullView(
+              room.image_url,
+              `viewer`,
+              room.doors,
+              homeID
+            );
+            console.log(room.doors);
+          }
+        });
+      }
+
+      main(homeID, roomID);
     </script>
   </body>
 </html>
