@@ -84,8 +84,8 @@ function addMarkers(viewer, panoramaImage, markers, homeID) {
     const intersects = raycaster.intersectObjects(panoramaImage.children, true);
     intersects.forEach((intersect) => {
       const markerId = intersect.object.userData.id;
-      if (`/description.html?homeID=${homeID}&roomID=${markerId}`) {
-        window.location.href = `/description.html?homeID=${homeID}&roomID=${markerId}`;
+      if (`./description.html?homeID=${homeID}&roomID=${markerId}`) {
+        window.location.href = `./description.html?homeID=${homeID}&roomID=${markerId}`;
       }
     });
   });
