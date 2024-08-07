@@ -1,5 +1,7 @@
 function initializeViewer(image, container, interactive = false) {
-  const panoramaImage = new PANOLENS.ImagePanorama(`./images/panorama/${image}`);
+  const panoramaImage = new PANOLENS.ImagePanorama(
+    `./images/panorama/${image}`
+  );
   const imageContainer = document.querySelector(`.${container}`);
 
   // Create the viewer instance
