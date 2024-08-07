@@ -32,7 +32,9 @@ function initializeViewer(image, container, interactive = false) {
 }
 
 function initializeViewerFullView(image, container, markers = [], homeID) {
-  const panoramaImage = new PANOLENS.ImagePanorama(`./images/panorama/${image}`);
+  const panoramaImage = new PANOLENS.ImagePanorama(
+    `./images/panorama/${image}`
+  );
   const imageContainer = document.querySelector(`.${container}`);
   const viewer = new PANOLENS.Viewer({
     container: imageContainer,
@@ -84,8 +86,10 @@ function addMarkers(viewer, panoramaImage, markers, homeID) {
     const intersects = raycaster.intersectObjects(panoramaImage.children, true);
     intersects.forEach((intersect) => {
       const markerId = intersect.object.userData.id;
-      if (`./description.html?homeID=${homeID}&roomID=${markerId}`) {
-        window.location.href = `./description.html?homeID=${homeID}&roomID=${markerId}`;
+      if (
+        `./360-Degree-Image-Viewer-main//description.html?homeID=${homeID}&roomID=${markerId}`
+      ) {
+        window.location.href = `./360-Degree-Image-Viewer-main//description.html?homeID=${homeID}&roomID=${markerId}`;
       }
     });
   });
