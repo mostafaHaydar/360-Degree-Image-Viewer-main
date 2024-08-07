@@ -32,7 +32,7 @@ function initializeViewer(image, container, interactive = false) {
 }
 
 function initializeViewerFullView(image, container, markers = [], homeID) {
-  const panoramaImage = new PANOLENS.ImagePanorama(`/images/panorama/${image}`);
+  const panoramaImage = new PANOLENS.ImagePanorama(`./images/panorama/${image}`);
   const imageContainer = document.querySelector(`.${container}`);
   const viewer = new PANOLENS.Viewer({
     container: imageContainer,
