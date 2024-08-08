@@ -3,7 +3,7 @@
         "id": 1,
         "address": "123 Main St",
         "description": "A beautiful family home with modern amenities.",
-        "image_url": "pano.jpg",
+        "image_url": "image1.jpeg",
         "owner": "John Doe",
         "phone_number": "555-1234",
         "price": "$350,000",
