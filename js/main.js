@@ -1,4 +1,4 @@
-function initializeViewer(image, container, interactive = false) {
+function initializeViewer(image, container, interactive = true) {
   const panoramaImage = new PANOLENS.ImagePanorama(
     `./images/panorama/${image}`
   );
@@ -51,7 +51,7 @@ function initializeViewerFullView(image, container, markers = [], homeID) {
 
 function addMarkers(viewer, panoramaImage, markers, homeID) {
   imageUrl = "./images/graphics/chevron.png";
-
+  markers = [];
   const raycaster = new THREE.Raycaster();
   const mouse = new THREE.Vector2();
 
