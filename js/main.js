@@ -8,7 +8,7 @@ function initializeViewer(image, container, interactive = true) {
   const viewer = new PANOLENS.Viewer({
     container: imageContainer,
     autoRotate: true,
-    autoRotateSpeed: 0.3,
+    autoRotateSpeed: 1,
     controlBar: false,
     pointerLock: false,
     backgroundColor: 0x000000,
