@@ -1,7 +1,5 @@
-function initializeViewer(image, container, interactive = true) {
-  const panoramaImage = new PANOLENS.ImagePanorama(
-    `./images/panorama/${image}`
-  );
+function initializeViewer(image, container, interactive = false) {
+  const panoramaImage = new PANOLENS.ImagePanorama(`./images/panorama/${image}`);
   const imageContainer = document.querySelector(`.${container}`);
 
   // Create the viewer instance
@@ -32,9 +30,7 @@ function initializeViewer(image, container, interactive = true) {
 }
 
 function initializeViewerFullView(image, container, markers = [], homeID) {
-  const panoramaImage = new PANOLENS.ImagePanorama(
-    `./images/panorama/${image}`
-  );
+  const panoramaImage = new PANOLENS.ImagePanorama(`/images/panorama/${image}`);
   const imageContainer = document.querySelector(`.${container}`);
   const viewer = new PANOLENS.Viewer({
     container: imageContainer,
@@ -86,8 +82,8 @@ function addMarkers(viewer, panoramaImage, markers, homeID) {
     const intersects = raycaster.intersectObjects(panoramaImage.children, true);
     intersects.forEach((intersect) => {
       const markerId = intersect.object.userData.id;
-      if (`./description.html?homeID=${homeID}&roomID=${markerId}`) {
-        window.location.href = `./description.html?homeID=${homeID}&roomID=${markerId}`;
+      if (`/description.html?homeID=${homeID}&roomID=${markerId}`) {
+        window.location.href = `/description.html?homeID=${homeID}&roomID=${markerId}`;
       }
     });
   });

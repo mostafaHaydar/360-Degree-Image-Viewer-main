@@ -22,3 +22,11 @@ function hiddeOwnerPhoneNumber(event) {
   event.style.animationName = "shrink";
   event.style.width = "50px";
 }
+
+// function removeLastComma(str) {
+//   const lastCommaIndex = str.lastIndexOf(",");
+//   if (lastCommaIndex === -1) {
+//     return str;
+//   }
+//   return str.slice(0, lastCommaIndex) + str.slice(lastCommaIndex + 1);
+// }

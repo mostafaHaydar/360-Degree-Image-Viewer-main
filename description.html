@@ -12,14 +12,14 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
-    <script src="./js/panolens.min.js "></script>
     <script src="./js/global.js "></script>
+    <script src="./js/panolens.min.js "></script>
     <script src="./js/main.js "></script>
   </head>
   <body>
     <div class="description-conatiner">
-      <a href="./" class="back-to-home">
-        <img src="./images/graphics/arrow-back.svg" alt="back to home" />
+      <a href="/" class="back-to-home">
+        <img src="./images/graphics//arrow-back.svg" alt="back to home" />
       </a>
       <div class="viewer" id="viewer"></div>
     </div>
@@ -62,15 +62,15 @@
         }
 
         data.home.rooms.forEach((room) => {
+          // console.log(homeID)
           if (room.id == roomID) {
-            console.log("im here");
-            console.log(room.image_url);
             initializeViewerFullView(
               room.image_url,
               `viewer`,
               room.doors,
               homeID
             );
+            console.log(room.doors);
           }
         });
       }
