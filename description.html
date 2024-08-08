@@ -18,7 +18,7 @@
   </head>
   <body>
     <div class="description-conatiner">
-      <a href="/" class="back-to-home">
+      <a href="./" class="back-to-home">
         <img src="./images/graphics//arrow-back.svg" alt="back to home" />
       </a>
       <div class="viewer" id="viewer"></div>
@@ -38,9 +38,6 @@
 
       // Usage
       const { homeID, roomID } = getQueryParams();
-
-      console.log("Home ID:", homeID);
-      console.log("Room ID:", roomID);
 
       async function fetchData() {
         try {
@@ -62,7 +59,6 @@
         }
 
         data.home.rooms.forEach((room) => {
-          // console.log(homeID)
           if (room.id == roomID) {
             initializeViewerFullView(
               room.image_url,
@@ -70,7 +66,6 @@
               room.doors,
               homeID
             );
-            console.log(room.doors);
           }
         });
       }
