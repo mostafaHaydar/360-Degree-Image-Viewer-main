@@ -1,4 +1,4 @@
-function initializeViewer(image, container, interactive = false) {
+function initializeViewer(image, container, interactive = true) {
   const panoramaImage = new PANOLENS.ImagePanorama(
     `./images/panorama/${image}`
   );
