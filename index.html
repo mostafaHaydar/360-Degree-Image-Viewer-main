@@ -11,6 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=Baskervville+SC&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
       rel="stylesheet"
     />
+
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/three.js/105/three.min.js"
       integrity="sha512-uWKImujbh9CwNa8Eey5s8vlHDB4o1HhrVszkympkm5ciYTnUEQv3t4QHU02CUqPtdKTg62FsHo12x63q6u0wmg=="
@@ -26,7 +27,7 @@
   <body>
     <div class="search">
       <form action="">
-        <input type="text" placeholder="search by Address" />
+        <input type="text" placeholder="rechercher par adresse" />
         <button>
           <img src="./images/graphics/search.svg" alt="search" />
         </button>
@@ -72,11 +73,11 @@
                       </div>
                       <div class="property-inof-price">
                         <img src="./images/graphics/payments.svg" alt="price" />
-                        <p>${data.home.price} per month</p>
+                        <p>${data.home.price} par mois</p>
                       </div>
                       <a href="./description.html?homeID=${data.home.id}&roomID=${data.home.rooms[0].id}" class="full-visit">
                         <img src="./images/graphics/360.svg" alt="visit" />
-                        <p>make a full visit</p>
+                        <p>effectuer une visite complète</p>
                       </a>
                     </div>
                   `;

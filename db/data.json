@@ -1,12 +1,12 @@
 {
     "home": {
         "id": 1,
-        "address": "123 Main St",
+        "address": "Oujda hay al qods",
         "description": "A beautiful family home with modern amenities.",
         "image_url": "image1.jpeg",
         "owner": "John Doe",
-        "phone_number": "555-1234",
-        "price": "$350,000",
+        "phone_number": "0612345678",
+        "price": "350,000 dh",
         "size": 2500.0,
         "view": "city",
         "rooms": [
